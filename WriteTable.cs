@@ -28,7 +28,7 @@ namespace leelax.Function
             CloudStorageAccount stoA = CloudStorageAccount.Parse(connStrA);
             CloudTableClient tbC = stoA.CreateCloudTableClient();
             CloudTable tableA = tbC.GetTableReference("tableA");
-            writeToTable(tableA,contentA,PartitionKeyA,RowKeyA);
+            writeToTable(tableA, contentA, PartitionKeyA, RowKeyA);
         }
 
     static void writeToTable(CloudTable tableA, string contentA, string PartitionKeyA, string RowKeyA) {
