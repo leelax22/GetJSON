@@ -40,10 +40,10 @@ namespace leelax.Function
     static Task<string> ReadToTable(CloudTable tableA, string filterA, string filterB) {
                 
         TableQuery<MemoData> rangeQ = new TableQuery<MemoData>().Where(
-            TableQuery.CombineFilters(filterA, TableOperators.And, filterB);
+            TableQuery.CombineFilters(filterA, TableOperators.And, filterB)
         );
         TableContinuationToken tokenA = null;
-        rangeQ.TakeCount = 10000;
+        rangeQ.TakeCount = 1000;
         JArray resultArr = new JArray();
 
 
@@ -71,12 +71,11 @@ namespace leelax.Function
         string resultA = Newtonsoft.Json.JsonConvert.SerializeObject(resultArr);
         if(resultA != null) return resultA;
         else return "NoData";
-        
+    }
 
     private class MemoData : TableEntity {
         public string content { get; set; }
     }
 
     }
-}
 }
