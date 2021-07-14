@@ -7,7 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-#using Azure.Storage.Blobs;
+// using Azure.Storage.Blobs;
 
 
 namespace leelax.Function
@@ -26,7 +26,7 @@ namespace leelax.Function
             dynamic data = JsonConvert.DeserializeObject(requestBody);
             String valueA = data.a;
             
-            #BlobServiceClient clientA = new BlobServiceClient(connStrA);
+            // BlobServiceClient clientA = new BlobServiceClient(connStrA);
 
 
             return valueA;
