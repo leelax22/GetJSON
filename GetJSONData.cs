@@ -15,16 +15,16 @@ namespace leelax.Function
     public static class GetJSONData
     {
         [FunctionName("GetJSONData")]
-        public static String Run(
+        public static string Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] 
             HttpRequest req, ILogger log, ExecutionContext context)
         
 
         {
-            String connStrA = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
-            String requestBody = new StreamReader(req.Body).ReadToEnd();
+            string connStrA = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
+            string requestBody = new StreamReader(req.Body).ReadToEnd();
             dynamic data = JsonConvert.DeserializeObject(requestBody);
-            String valueA = data.a;
+            string valueA = data.a;
             
             // BlobServiceClient clientA = new BlobServiceClient(connStrA);
 
